@@ -52,3 +52,43 @@ class MinusNode:
 
 	def __repr__(self):
 		return f"(-{self.node})"
+
+@dataclass
+class MoreNode:
+	node_a: any
+	node_b: any
+
+	def __repr__(self):
+		return f"({self.node_a}>{self.node_b})"
+
+@dataclass
+class MoreEqualNode:
+	node_a: any
+	node_b: any
+
+	def __repr__(self):
+		return f"({self.node_a}>={self.node_b})"
+
+@dataclass
+class LessNode:
+	node_a: any
+	node_b: any
+
+	def __repr__(self):
+		return f"({self.node_a}<{self.node_b})"
+
+@dataclass
+class LessEqualNode:
+	node_a: any
+	node_b: any
+
+	def __repr__(self):
+		return f"({self.node_a}<={self.node_b})"
+
+@dataclass
+class EqualNode:
+	node_a: any
+	node_b: any
+
+	def __repr__(self):
+		return f"({self.node_a}=={self.node_b})"
