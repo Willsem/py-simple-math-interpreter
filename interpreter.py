@@ -29,16 +29,36 @@ class Interpreter:
             raise Exception("Runtime math error")
 
     def visit_MoreNode(self, node):
-        return Bool(self.visit(node.node_a).value > self.visit(node.node_b).value)
+        value_a = self.visit(node.node_a).value
+        value_b = self.visit(node.node_b).value
+        if type(value_a) != type(value_b):
+            raise Exception(f"Tried to make '{value_a} > {value_b}' operation")
+        return Bool(value_a > value_b)
 
     def visit_MoreEqualNode(self, node):
-        return Bool(self.visit(node.node_a).value >= self.visit(node.node_b).value)
+        value_a = self.visit(node.node_a).value
+        value_b = self.visit(node.node_b).value
+        if type(value_a) != type(value_b):
+            raise Exception(f"Tried to make '{value_a} >= {value_b}' operation")
+        return Bool(value_a >= value_b)
 
     def visit_LessNode(self, node):
-        return Bool(self.visit(node.node_a).value < self.visit(node.node_b).value)
+        value_a = self.visit(node.node_a).value
+        value_b = self.visit(node.node_b).value
+        if type(value_a) != type(value_b):
+            raise Exception(f"Tried to make '{value_a} < {value_b}' operation")
+        return Bool(value_a < value_b)
 
     def visit_LessEqualNode(self, node):
-        return Bool(self.visit(node.node_a).value <= self.visit(node.node_b).value)
+        value_a = self.visit(node.node_a).value
+        value_b = self.visit(node.node_b).value
+        if type(value_a) != type(value_b):
+            raise Exception(f"Tried to make '{value_a} <= {value_b}' operation")
+        return Bool(value_a <= value_b)
 
     def visit_EqualNode(self, node):
-        return Bool(self.visit(node.node_a).value == self.visit(node.node_b).value)
+        value_a = self.visit(node.node_a).value
+        value_b = self.visit(node.node_b).value
+        if type(value_a) != type(value_b):
+            raise Exception(f"Tried to make '{value_a} == {value_b}' operation")
+        return Bool(value_a == value_b)
